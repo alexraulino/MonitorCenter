@@ -3,13 +3,13 @@ package com.gatemonitor.db;
 import java.util.Collection;
 import java.util.HashMap;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
 import com.gatemonitor.db.tabelas.DataAbstract;
 import com.gatemonitor.db.tabelas.TabelaConfiguracoes;
 import com.gatemonitor.db.tabelas.TabelaEventos;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBGateMonitor {
 	private static final String DATABASE_NAME = "GateMonitor.db";
