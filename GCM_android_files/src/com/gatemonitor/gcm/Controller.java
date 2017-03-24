@@ -180,9 +180,8 @@ public class Controller extends Application {
 		byte[] bytes = body.getBytes();
 
 		HttpURLConnection conn = null;
-		try {
-
-			Log.e("URL", "> " + url);
+		try {			
+			Log.i("URL", "> " + url);
 
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
