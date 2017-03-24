@@ -5,6 +5,12 @@
     android:orientation="vertical"
     android:background="#ffffff" >    
      
-     
+    
+    <ListView android:id="@+id/listView1" 
+        
+        
+    />
+    
+    
 
 </LinearLayout>

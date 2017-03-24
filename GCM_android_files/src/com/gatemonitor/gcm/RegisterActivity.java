@@ -31,9 +31,9 @@ public class RegisterActivity extends Activity {
 		txtSenha = (EditText) findViewById(R.id.txtSenha);
 		btnRegister = (Button) findViewById(R.id.btnRegister);
 		
-		txtName.setText("alexraulino");
-		txtEmail.setText("alex.alex.raulino@gmail.com");
-		txtSenha.setText("123");
+		// txtName.setText("alexraulino");
+		// txtEmail.setText("alex.alex.raulino@gmail.com");
+		// txtSenha.setText("123");
 
 		// Click event on Register button
 		btnRegister.setOnClickListener(new View.OnClickListener() {

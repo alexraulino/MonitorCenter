@@ -10,7 +10,7 @@ public class AboutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
 
-		final Controller aController = (Controller) getApplicationContext();
+		//final Controller aController = (Controller) getApplicationContext();
 
 	}
 

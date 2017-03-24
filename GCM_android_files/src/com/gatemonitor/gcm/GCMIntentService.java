@@ -1,14 +1,15 @@
 package com.gatemonitor.gcm;
 
-import android.app.Notification;
+import com.gatemonitor.db.DBGateMonitor;
+import com.gatemonitor.db.tabelas.RegistroEvento;
+import com.gatemonitor.db.tabelas.TipoNotificacoes;
+import com.google.android.gcm.GCMBaseIntentService;
+
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-
-import com.google.android.gcm.GCMBaseIntentService;
 
 public class GCMIntentService extends GCMBaseIntentService {
 
@@ -117,12 +118,23 @@ public class GCMIntentService extends GCMBaseIntentService {
 	 * Create a notification to inform the user that server has sent a message.
 	 */
 	private static void generateNotification(Context context, String message) {
+		
+		int msg = Integer.valueOf(message.split("=")[0]);
+		String data = message.split("=")[1];		
+		
         NotificationManager notificationManager= (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle(context.getString(R.string.app_name))
-                .setContentText(message);
+                .setContentText(TipoNotificacoes.getTipoNotificacao(msg).getDescricao());
         notificationManager.notify(1, mBuilder.build());
+        
+        
+		DBGateMonitor.setContext(context);
+		DBGateMonitor db = DBGateMonitor.getInstanceDB();
+		RegistroEvento rg = new RegistroEvento(0, data, msg, "");
+		db.getTabelaEventos().inserirRegistro(rg);
+		db.getTabelaEventos().recarregarTabela();
 	}
 
 }

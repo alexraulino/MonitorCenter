@@ -11,6 +11,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.gatemonitor.db.DBGateMonitor;
@@ -25,6 +29,8 @@ public class MainActivity extends Activity {
 
 	// Asyntask
 	AsyncTask<Void, Void, Void> mRegisterTask;
+	
+	ListView listView1;
 
 	public static String name;
 	public static String email;
@@ -60,6 +66,8 @@ public class MainActivity extends Activity {
 		senha = i.getStringExtra("senha");
 		registered = i.getBooleanExtra("registered", false);
 		regId = i.getStringExtra("regId");
+		
+		listView1 = (ListView) findViewById(R.id.listView1);	
 
 		if ((name == null) || (email == null) || (senha == null)) {
 
